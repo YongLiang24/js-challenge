@@ -16,3 +16,25 @@ function twoSum(numArray, numTarget)
   }
  return "target not found."
 }
+
+//object or hash table solution
+function twoSum(numArray, target){
+
+  const numObject = {} //create an empty object
+
+  for(let eachNum in numArray){
+
+    const otherNum = target - numArray[eachNum]
+
+    if(otherNum in numObject){
+
+      return `${otherNum} + ${numArray[eachNum]} = ${target}`
+    }
+
+    numObject[numArray[eachNum]] = eachNum
+
+//adding key/value has to go after the if statement to avoid adding the same index twice.
+  }
+
+  return "target not found"
+}
